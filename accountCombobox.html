@@ -1,0 +1,36 @@
+<template>
+
+  <lightning-card title="Account Contact Use Case" >
+
+    <lightning-combobox label="Enter Account Name"
+                        value={value}
+                        placeholder="Select an Account"
+                        options={options}
+                        onchange={handleChangedValue}>
+    </lightning-combobox>
+
+  </lightning-card>
+  <template if:true={cardVisible}>
+    <lightning-card title="Related Contacts List">
+        <div style="height:200px;">
+            <lightning-datatable key-field="Id"
+                                data={data}
+                                columns={columns}>               
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+  </template>
+
+  <template if:true={buttonsVisible}>
+    <lightning-card title="Please Click a button to proceed">
+        <div style="height:200px;">
+            <button class="slds-button slds-button_neutral"
+            onclick={showPopup}>Create Related Contact</button>
+               
+            <button class="slds-button slds-button_neutral"
+            onclick={handleDisplayContacts}
+            >Display Accounts and Related Contact</button>
+        </div>
+    </lightning-card>
+  </template>
+</template>
