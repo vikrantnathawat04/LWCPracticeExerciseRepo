@@ -1,6 +1,7 @@
 public with sharing class AccountComboboxHandler {
     @AuraEnabled
     public static List<Account> getAccountsForCobobox(){
+        //List<account> accountList =[Select Id, Name From Account Where NOT Id IN (Select AccountId From Contact)];      
         List<account> accountList =[SELECT Id, Name FROM Account LIMIT 20];
         return accountList;
     }
