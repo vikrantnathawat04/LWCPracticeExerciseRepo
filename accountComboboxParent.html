@@ -1,0 +1,42 @@
+<template>
+
+          <lightning-card>
+          <h3 slot="title">
+          <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+          Account Contact Use Case
+          </h3>
+
+          <p class="slds-p-horizontal_small">
+
+                    <lightning-combobox
+          name="progress"
+          label="Enter Account Name"
+          value={value}
+          placeholder="Select an Account"
+          options={accNames}
+          onchange={handleChange}
+          required
+          ></lightning-combobox>
+          </p>
+
+
+
+          <div class="slds-p-top_medium">
+                    <lightning-button label="Create Related Contact" title="Non-primary action" onclick={showPopup} class="slds-m-left_x-small"></lightning-button>
+          <lightning-button label="Display account and related contact record" title="Non-primary action" onclick={handleAccConRelated} class="slds-m-left_x-small"></lightning-button>
+
+
+
+          <template lwc:if={ishideshowmodalpopup}>
+          <c-account-combobox-child editable-contact-id={selectedrecordid} oncontactcreation={contactcreationhandler} onishideshowmodalpopup={controleishideshowmodalpopup}>
+          </c-account-combobox-child>
+          </template>
+          </div>
+
+          </lightning-card>
+
+
+
+
+
+          </template>
