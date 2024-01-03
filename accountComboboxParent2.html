@@ -1,0 +1,30 @@
+<template>
+          <lightning-card title="Display Account & Contact Details Component">
+              <div class="slds-p-horizontal_small">
+                  <lightning-layout multiple-rows>
+                      <lightning-layout-item padding="around-small" size="12">
+                          <template lwc:if={accountPresent}>
+                              <lightning-card title="Account Details:">
+                                  <lightning-datatable key-field="Id" data={accountData} columns={accColumns}
+                                      hide-checkbox-column></lightning-datatable>
+                              </lightning-card>
+                          </template>
+                          <template lwc:else>
+                              <div class="slds-text-title_caps">No Account Data to Show</div>
+                          </template>
+                      </lightning-layout-item>
+                      <lightning-layout-item padding="around-small" size="12">
+                          <template lwc:if={contactPresent}>
+                              <lightning-card title="Contact Details:">
+                                  <lightning-datatable key-field="Id" data={contactsData} columns={contactColumns}
+                                      hide-checkbox-column></lightning-datatable>
+                              </lightning-card>
+                          </template>
+                          <template lwc:else>
+                              <div class="slds-text-title_caps">No Contact Data to show</div>
+                          </template>
+                      </lightning-layout-item>
+                  </lightning-layout>
+              </div>
+          </lightning-card>
+      </template>
